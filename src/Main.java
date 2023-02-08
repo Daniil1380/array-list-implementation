@@ -7,11 +7,23 @@ public class Main {
 
         ArrayList<Integer> arrayList = new ArrayList<>(10);
 
-        for (int i = 0; i < 123; i++) {
-            list.add(i);
-        }
+        TreeSetImplementation treeSetImplementation = new TreeSetImplementation();
 
-        System.out.println(Arrays.toString(list.array));
+        treeSetImplementation.add(1);
+        treeSetImplementation.add(10);
+        treeSetImplementation.add(100);
+
+        System.out.println(treeSetImplementation.root);
+
+        System.out.print(treeSetImplementation.root.left + "       ");
+        System.out.println(treeSetImplementation.root.right);
+
+        System.out.print("           " + treeSetImplementation.root.right.left + "           " );
+        System.out.println(treeSetImplementation.root.right.right);
+
+
+
+
 
 
     }
