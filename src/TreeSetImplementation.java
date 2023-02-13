@@ -4,12 +4,16 @@ public class TreeSetImplementation {
 
     public void add(int element) {
         if (root == null) {
-            Node node = new Node(null, null, element);
-            root = node;
+            createRoot(element);
         }
         else {
             search(element);
         }
+    }
+
+    private void createRoot(int element) {
+        Node node = new Node(null, null, element);
+        root = node;
     }
 
     private void search(int element) {
@@ -17,24 +21,27 @@ public class TreeSetImplementation {
         boolean searching = true;
 
         while (searching) {
-            if (element < current.value) {
-                if (current.left != null) {
-                    current = current.left;
-                }
-                else {
-                    current.left = new Node(null, null, element);
-                    searching = false;
-                }
+
+            if (element < current.value && current.left != null) {
+                current = current.left;
             }
-            if (element > current.value) {
-                if (current.right != null) {
-                    current = current.right;
-                }
-                else {
-                    current.right = new Node(null, null, element);
-                    searching = false;
-                }
+
+            if (element < current.value && current.left == null) {
+                current.left = new Node(null, null, element);
+                searching = false;
             }
+
+
+            if (element > current.value && current.right != null) {
+                current = current.right;
+            }
+
+            if (element > current.value && current.right == null) {
+                current.right = new Node(null, null, element);
+                searching = false;
+            }
+
+
             if (element == current.value) {
                 return;
             }

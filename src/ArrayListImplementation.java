@@ -28,4 +28,44 @@ public class ArrayListImplementation {
 
     }
 
+    public int size() {
+        return size;
+    }
+
+    public void print() {
+        String arrayList = "[";
+
+        for (int i = 0; i < size; i++) {
+            arrayList += array[i];
+            if (i != size - 1) {
+                arrayList += ", ";
+            }
+        }
+
+        arrayList += "]";
+
+        System.out.println(arrayList);
+
+    }
+
+    public void remove(int index) {
+        for (int i = index; i < size; i++) {
+            array[i] = array[i + 1];
+        }
+        array[size - 1] = 0;
+        size--;
+    }
+
+    public void add(int index, int value) {
+        if (array.length == size) {
+            grow();
+        }
+
+        for (int i = size - 1; i >= index; i--) {
+            array[i + 1] = array[i];
+        }
+        array[index] = value;
+        size++;
+    }
+
 }

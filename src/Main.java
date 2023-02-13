@@ -7,6 +7,18 @@ public class Main {
 
         ArrayList<Integer> arrayList = new ArrayList<>(10);
 
+        list.add(1);
+        list.add(12);
+        list.add(45);
+        list.add(67);
+
+        list.remove(2);
+        list.add(1, 333);
+
+        list.print();
+
+
+
         TreeSetImplementation treeSetImplementation = new TreeSetImplementation();
 
         treeSetImplementation.add(1);
